@@ -17,7 +17,7 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/nvidia/shieldtablet/include
+TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
 
 # Architecture
 TARGET_CPU_ABI := armeabi-v7a
@@ -32,14 +32,20 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 # Kernel
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.hardware=tn8
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_RAMDISK_OFFSET := 0x02000000
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+
 TARGET_KERNEL_SOURCE := kernel/nvidia/shieldtablet
-TARGET_KERNEL_CONFIG := cyanogenmod_shieldtablet_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_mocha_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_USERDATAIMAGE_PARTITION_SIZE  := 12799754240
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1342177280
-BOARD_FLASH_BLOCK_SIZE := 4096
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
+BOARD_FLASH_BLOCK_SIZE := 131072
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT := tegra
@@ -51,7 +57,7 @@ BOARD_USES_ALSA_AUDIO := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/nvidia/shieldtablet/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/xiaomi/mocha/bluetooth
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -66,8 +72,8 @@ MAX_EGL_CACHE_ENTRY_SIZE := 262144
 
 # Recovery
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_RECOVERY_DEVICE_DIRS += device/nvidia/shieldtablet
-TARGET_RECOVERY_FSTAB := device/nvidia/shieldtablet/rootdir/etc/fstab.tn8
+TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
+TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/rootdir/etc/fstab.tn8
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
@@ -83,10 +89,10 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
 WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 
-BOARD_HARDWARE_CLASS := device/nvidia/shieldtablet/cmhw/
+BOARD_HARDWARE_CLASS := device/xiaomi/mocha/cmhw/
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/nvidia/shieldtablet/sepolicy
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
 BOARD_SEPOLICY_UNION += \
 	te_macros \
 	agpsd.te \
@@ -140,5 +146,5 @@ BOARD_SEPOLICY_UNION += \
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_tn8
-TARGET_LIBINIT_DEFINES_FILE := device/nvidia/shieldtablet/init/init_tn8.c
+TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/mocha/init/init_tn8.c
 

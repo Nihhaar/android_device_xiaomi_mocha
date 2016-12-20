@@ -15,16 +15,16 @@
 #
 
 PRODUCT_AAPT_CONFIG += xlarge large
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1200
+TARGET_SCREEN_HEIGHT := 2048
+TARGET_SCREEN_WIDTH := 1536
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/nvidia/shieldtablet/shieldtablet-vendor.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/mocha/mocha-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    device/nvidia/shieldtablet/overlay
+    device/xiaomi/mocha/overlay
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -166,8 +166,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += power.tegra
 
 # Wireless Controller
-$(call inherit-product-if-exists, vendor/nvidia/shield_common/blake-blobs.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/mocha/blake-blobs.mk)
 
 # Console Mode
-$(call inherit-product-if-exists, vendor/nvidia/shield_common/consolemode-blobs.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 

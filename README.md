@@ -1,4 +1,4 @@
-# Device configuration for Nvidia SHIELD Tablet
+# Device configuration for XiaoMi MiPad Tablet
 
 ## Spec Sheet
 | Feature                 | Specification                     |
@@ -8,11 +8,11 @@
 | GPU                     | NVIDIA® GK20A (Kepler)            |
 | Memory                  | 2GB RAM                           |
 | Shipped Android Version | 4.4.2                             |
-| Storage                 | 16/32GB                           |
+| Storage                 | 16/32/64GB                           |
 | MicroSD                 | Up to 128GB                       |
 | Battery                 | 5197 mAh                          |
 | Dimentions              | 221 x 126 x 9.2 mm                |
-| Display                 | 1200 x 1920 pixels                |
+| Display                 | 1536 x 2048 pixels                |
 | Release Date            | July 29, 2014                     |
 
 ## Device Picture

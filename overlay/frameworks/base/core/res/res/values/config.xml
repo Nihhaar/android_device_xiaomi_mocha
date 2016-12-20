@@ -198,7 +198,7 @@
     <bool name="config_voice_capable">false</bool>
 
     <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">Shield Tablet</string>
+    <string name="config_mms_user_agent" translatable="false">MiPad</string>
 
     <!-- MMS user agent prolfile url -->
     <string name="config_mms_user_agent_profile_url" translatable="false">http://www.nvidia.com</string>

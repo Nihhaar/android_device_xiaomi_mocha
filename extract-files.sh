@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #set -e
-export DEVICE=shieldtablet
-export VENDOR=nvidia
+export DEVICE=mocha
+export VENDOR=xiaomi
 
 if [ $# -eq 0 ]; then
   SRC=adb

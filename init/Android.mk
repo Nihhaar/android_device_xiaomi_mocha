@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),shieldtablet)
+ifeq ($(TARGET_DEVICE),mocha)
 
 include $(CLEAR_VARS)
 
