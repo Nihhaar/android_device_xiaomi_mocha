@@ -25,7 +25,6 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a15
-
 # Board
 TARGET_BOARD_PLATFORM := tegra
 TARGET_NO_BOOTLOADER := true
@@ -37,11 +36,14 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --dt device/xiaomi/mocha/dt.img
 
-TARGET_KERNEL_SOURCE := kernel/nvidia/shieldtablet
-TARGET_KERNEL_CONFIG := cyanogenmod_mocha_defconfig
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+#TARGET_KERNEL_SOURCE := kernel/nvidia/shieldtablet
+#TARGET_KERNEL_CONFIG := cyanogenmod_mocha_defconfig
+#BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+
+TARGET_PREBUILT_KERNEL := device/xiaomi/mocha/kernel
+#BOARD_KERNEL_SEPARATED_DT := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
@@ -146,6 +148,6 @@ BOARD_SEPOLICY_UNION += \
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_tn8
-TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/mocha/init/init_tn8.c
+#TARGET_INIT_VENDOR_LIB := libinit_tn8
+#TARGET_LIBINIT_DEFINES_FILE := device/xiaomi/mocha/init/init_tn8.c
 

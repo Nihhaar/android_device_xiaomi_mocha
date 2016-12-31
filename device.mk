@@ -125,8 +125,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/model_frontal.xml:system/etc/model_frontal.xml
 
 # Wifi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
 PRODUCT_PACKAGES += \
     hostapd \
