@@ -131,8 +131,8 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 # Light
-PRODUCT_PACKAGES += \
-    lights.tegra
+#PRODUCT_PACKAGES += \
+#    lights.tegra
 
 # Charger
 PRODUCT_PACKAGES += \
