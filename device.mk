@@ -122,9 +122,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/model_frontal.xml:system/etc/model_frontal.xml
 
 # Wifi
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
 
+# Wifi
+# All Shield devices xurrently use broadcom wifi / bluetooth modules
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
@@ -148,9 +151,6 @@ PRODUCT_PACKAGES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     setup_fs
-
-# Radio Interface
-PRODUCT_PACKAGES += rild
 
 # Comm Permissions
 PRODUCT_COPY_FILES += \
