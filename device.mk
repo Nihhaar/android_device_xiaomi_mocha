@@ -162,8 +162,19 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += power.tegra
 
-# Wireless Controller
-$(call inherit-product-if-exists, vendor/xiaomi/mocha/blake-blobs.mk)
+# Sensors
+PRODUCT_PACKAGES += \
+    sensors.tegra
+
+# Multi HAL configuration file
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mocha/sensors/etc/hals.conf:system/etc/sensors/hals.conf
+
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml
 
 # Console Mode
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
