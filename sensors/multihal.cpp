@@ -260,7 +260,7 @@ int sensors_poll_context_t::get_device_version_by_handle(int handle) {
 // Returns true if HAL is compliant, false if HAL is not compliant or if handle is invalid
 static bool halIsCompliant(sensors_poll_context_t *ctx, int handle) {
     int version = ctx->get_device_version_by_handle(handle);
-    return version != -1 && HAL_VERSION_IS_COMPLIANT(version);
+    return version != -1;
 }
 
 const char *apiNumToStr(int version) {
@@ -658,12 +658,12 @@ static int open_sensors(const struct hw_module_t* hw_module, const char* name,
         struct hw_device_t* sub_hw_device;
         int sub_open_result = sensors_module->common.methods->open(*it, name, &sub_hw_device);
         if (!sub_open_result) {
-            if (!HAL_VERSION_IS_COMPLIANT(sub_hw_device->version)) {
+/*            if (!HAL_VERSION_IS_COMPLIANT(sub_hw_device->version)) {
                 ALOGE("SENSORS_DEVICE_API_VERSION_1_3 is required for all sensor HALs");
                 ALOGE("This HAL reports non-compliant API level : %s",
                         apiNumToStr(sub_hw_device->version));
                 ALOGE("Sensors belonging to this HAL will get ignored !");
-            }
+            } */
             dev->addSubHwDevice(sub_hw_device);
         }
     }
