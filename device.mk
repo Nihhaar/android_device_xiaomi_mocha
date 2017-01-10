@@ -132,6 +132,11 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    lights.tegra
 
+# Missing symbols lib
+
+PRODUCT_PACKAGES += \
+    libmocha
+
 # Charger
 PRODUCT_PACKAGES += \
     charger \
