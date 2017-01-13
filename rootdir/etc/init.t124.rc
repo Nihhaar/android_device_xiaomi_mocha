@@ -13,10 +13,6 @@ on boot
     # write /sys/devices/system/cpu/cpufreq/conservative/down_threshold 50
     # write /sys/devices/system/cpu/cpufreq/conservative/freq_step 3
 
-    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/down_delay 500
-    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/idle_top_freq 204000
-    write /sys/devices/system/cpu/cpuquiet/current_governor runnable
-
     # Enable power gating of fast CPU's
     write /sys/module/cpuidle_t11x/parameters/cpu_power_gating_in_idle 31
     write /sys/module/cpuidle_t11x/parameters/slow_cluster_power_gating_noncpu 1
@@ -44,7 +40,7 @@ on boot
 
     write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/down_delay 500
     write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/idle_top_freq 204000
-    write /sys/devices/system/cpu/cpuquiet/current_governor runnable
+    write /sys/devices/system/cpu/cpuquiet/current_governor balanced
 
     chown system system /sys/devices/tegradc.0/enable
     chown system system /sys/devices/tegradc.1/enable
@@ -72,3 +68,10 @@ on init
     # Immersion
     export VIBE_PIPE_PATH /dev/pipes
     mkdir /dev/pipes 0771 system system
+
+    # Enable PowerService
+service powerservice /vendor/bin/powerservice
+    class main
+    user system
+    group system
+

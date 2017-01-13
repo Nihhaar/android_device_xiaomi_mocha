@@ -101,16 +101,12 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler \
     libaudiospdif \
-    libtinycompress \
+    libstagefrighthw \
     tinycap \
     tinymix \
     tinyplay \
     xaplay
 
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -130,12 +126,16 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 PRODUCT_PACKAGES += \
     hostapd \
-    wpa_supplicant \
     wpa_supplicant.conf
 
 # Light
 #PRODUCT_PACKAGES += \
 #    lights.tegra
+
+# Missing symbols lib
+
+PRODUCT_PACKAGES += \
+    libmocha
 
 # Charger
 PRODUCT_PACKAGES += \
