@@ -91,6 +91,11 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 
 BOARD_HARDWARE_CLASS := device/xiaomi/mocha/cmhw/
 
+# Boot animation
+TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
+
 # SELinux
 BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
 BOARD_SEPOLICY_UNION += \
