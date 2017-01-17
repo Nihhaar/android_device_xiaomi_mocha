@@ -1,2 +1,1 @@
-add_lunch_combo cm_xiaomi-eng
-add_lunch_combo cm_xiaomi-userdebug
+add_lunch_combo cm_mocha-userdebug
