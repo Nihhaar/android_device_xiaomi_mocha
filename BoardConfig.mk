@@ -40,7 +40,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $
 BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
 
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
-TARGET_KERNEL_CONFIG := mocha_user_defconfig
+TARGET_KERNEL_CONFIG := mocha_debug_defconfig
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
