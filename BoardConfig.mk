@@ -17,8 +17,6 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
-
 # Architecture
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -36,71 +34,23 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
-
-TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
-TARGET_KERNEL_CONFIG := mocha_debug_defconfig
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --dt device/xiaomi/mocha/dt.img
+TARGET_PREBUILT_KERNEL := device/xiaomi/mocha/kernel
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# PowerHAL
-TARGET_POWERHAL_VARIANT := tegra
-
-# Audio
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_ALSA_AUDIO := true
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/xiaomi/mocha/bluetooth
-
-# Graphics
-USE_OPENGL_RENDERER := true
-BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
-
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
-
-# Per-application sizes for shader cache
-MAX_EGL_CACHE_SIZE := 4194304
-MAX_EGL_CACHE_ENTRY_SIZE := 262144
-
-# Recovery
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
-TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
-TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/rootdir/etc/fstab.tn8
-
-# Wifi related defines
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE                := bcmdhd
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_FW_PATH_STA          := "/etc/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/etc/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P          := "/etc/firmware/fw_bcmdhd_p2p.bin"
-WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
-#WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
-#WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
-
-BOARD_HARDWARE_CLASS := device/xiaomi/mocha/cmhw/
-
-# Boot animation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
-
-# SELinux
-BOARD_SEPOLICY_DIRS += device/nvidia/shieldtablet/sepolicy/common \
-                       device/nvidia/shieldtablet/sepolicy/icera \
-                       device/nvidia/shieldtablet/sepolicy/product \
-                       device/nvidia/shieldtablet/sepolicy/raydium
-
-# SELinux
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
+#twrp
+RECOVERY_VARIANT := twrp
+BOARD_USE_CUSTOM_RECOVERY_FONT :=  \"roboto_23x41.h\"
+BRIGHTNESS_SYS_FILE := /sys/class/leds/button-backlight/brightness	  
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
+TW_THEME := portrait_hdpi
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+RECOVERY_SDCARD_ON_DATA := true
+TW_FLASH_FROM_STORAGE := true
+TW_NO_USB_STORAGE := true
+PRODUCT_COPY_FILES += device/xiaomi/mocha/twrp.fstab:recovery/root/etc/twrp.fstab
