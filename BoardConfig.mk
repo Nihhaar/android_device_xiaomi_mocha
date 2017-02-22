@@ -95,12 +95,3 @@ BOARD_HARDWARE_CLASS := device/xiaomi/mocha/cmhw/
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
-
-# SELinux
-BOARD_SEPOLICY_DIRS += device/nvidia/shieldtablet/sepolicy/common \
-                       device/nvidia/shieldtablet/sepolicy/icera \
-                       device/nvidia/shieldtablet/sepolicy/product \
-                       device/nvidia/shieldtablet/sepolicy/raydium
-
-# SELinux
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
